@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import DataTable from '../components/DataTable.jsx'
+import EmptyState from '../components/EmptyState.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import StatCard from '../components/StatCard.jsx'
 import StatusBadge from '../components/StatusBadge.jsx'
@@ -298,13 +299,23 @@ export default function ReportsPage() {
       <article className="card list-card report-section">
         <div className="table-title"><div><h2>Current stock report</h2><div className="panel-sub">Saldo semua barang aktif saat ini</div></div></div>
         {itemsStatus === 'ready' && (
-          <DataTable columns={stockColumns} rows={activeItems} rowKey="id" emptyMessage="Tidak ada item aktif." />
+          activeItems.length
+            ? <DataTable columns={stockColumns} rows={activeItems} rowKey="id" />
+            : <EmptyState title="Belum ada item aktif untuk ditampilkan." />
         )}
       </article>
       <article className="card list-card report-section">
         <div className="table-title"><div><h2>Low stock report</h2><div className="panel-sub">Barang pada atau di bawah minimum</div></div></div>
         {itemsStatus === 'ready' && (
-          <DataTable columns={stockColumns} rows={filteredLowStock} rowKey="id" emptyMessage="Tidak ada barang dengan stok menipis." />
+          filteredLowStock.length
+            ? <DataTable columns={stockColumns} rows={filteredLowStock} rowKey="id" />
+            : (
+              <EmptyState
+                title={activeItems.length
+                  ? 'Semua stok item masih berada di atas batas minimum.'
+                  : 'Belum ada item aktif untuk diperiksa.'}
+              />
+            )
         )}
       </article>
       <article className="card list-card report-section">
@@ -312,7 +323,7 @@ export default function ReportsPage() {
         {movementsStatus === 'ready' && (
           movements.length
             ? <DataTable columns={movementColumns} rows={movements} rowKey="id" />
-            : <div className="table-footer">Tidak ada transaksi untuk filter ini.</div>
+            : <EmptyState title="Tidak ada transaksi yang sesuai dengan filter saat ini." />
         )}
       </article>
     </>
