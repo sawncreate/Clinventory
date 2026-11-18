@@ -79,6 +79,7 @@ h3,
   display: flex;
   width: 250px;
   flex-direction: column;
+  overflow-y: auto;
   padding: 25px 16px 18px;
   background: var(--surface);
   border-right: 1px solid var(--line);
