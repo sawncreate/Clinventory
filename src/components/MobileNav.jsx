@@ -14,6 +14,7 @@ const moreNavigation = [
   { label: 'Suppliers', icon: 'suppliers', to: '/suppliers' },
   { label: 'Stock history', icon: 'history', to: '/stock-history' },
   { label: 'Reports', icon: 'reports', to: '/reports' },
+  { label: 'Profile', icon: 'profile', to: '/profile' },
 ]
 
 export default function MobileNav() {
