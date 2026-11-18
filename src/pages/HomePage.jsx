@@ -27,10 +27,6 @@ export default function HomePage() {
             Open dashboard <span aria-hidden="true">→</span>
           </Link>
         </div>
-        <div className="home-card-note">
-          <strong>Stage 2</strong>
-          <span>Visual design migration</span>
-        </div>
       </section>
       <section className="home-highlights" aria-label="ClinicStock overview">
         {highlights.map((item) => (

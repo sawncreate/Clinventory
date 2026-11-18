@@ -5,6 +5,7 @@ import EmptyState from '../components/EmptyState.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import StatCard from '../components/StatCard.jsx'
 import StatusBadge from '../components/StatusBadge.jsx'
+import { useAuth } from '../context/AuthContext.jsx'
 import {
   listCategories,
   listItems,
@@ -107,6 +108,8 @@ function formatDate(value) {
 }
 
 export default function DashboardPage() {
+  const { profile } = useAuth()
+  const displayName = profile?.full_name?.trim() || 'Pengguna'
   const [dashboard, setDashboard] = useState(null)
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
@@ -196,7 +199,7 @@ export default function DashboardPage() {
   return (
     <>
       <PageHeader
-        title="Good morning, Dira 👋"
+        title={`Good morning, ${displayName} 👋`}
         description="Ringkasan kondisi persediaan klinik dari Supabase."
       />
       {status === 'loading' && (
