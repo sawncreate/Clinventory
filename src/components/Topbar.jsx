@@ -14,6 +14,7 @@ const pageNames = {
   '/stock-out': 'Stock Out',
   '/stock-history': 'Stock History',
   '/reports': 'Reports',
+  '/profile': 'Profile',
 }
 
 export default function Topbar() {
