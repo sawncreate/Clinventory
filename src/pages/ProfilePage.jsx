@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext.jsx'
 
 export default function ProfilePage() {
   const { profile, user } = useAuth()
-  const fullName = profile?.full_name?.trim() || '—'
+  const fullName = profile?.full_name?.trim() || 'Nama belum diatur'
   const email = user?.email || '—'
   const role = profile?.role === 'admin' ? 'Admin' : 'Staff'
 
