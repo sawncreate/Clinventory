@@ -14,7 +14,7 @@ const navigation = [
   { label: 'Stock out', icon: 'stockout', to: '/stock-out' },
   { label: 'Stock history', icon: 'history', to: '/stock-history' },
   { label: 'Reports', icon: 'reports', to: '/reports' },
-  { label: 'Profile', icon: 'profile' },
+  { label: 'Profile', icon: 'profile', to: '/profile' },
 ]
 
 function getLowStockCount(items) {

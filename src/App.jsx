@@ -8,6 +8,7 @@ import DashboardPage from './pages/DashboardPage.jsx'
 import HomePage from './pages/HomePage.jsx'
 import ItemsPage from './pages/ItemsPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
+import ProfilePage from './pages/ProfilePage.jsx'
 import ReportsPage from './pages/ReportsPage.jsx'
 import StockHistoryPage from './pages/StockHistoryPage.jsx'
 import StockMovementPage from './pages/StockMovementPage.jsx'
@@ -43,6 +44,7 @@ export default function App() {
                 <Route path="stock-out" element={<StockMovementPage type="OUT" />} />
                 <Route path="stock-history" element={<StockHistoryPage />} />
                 <Route path="reports" element={<ReportsPage />} />
+                <Route path="profile" element={<ProfilePage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Route>
