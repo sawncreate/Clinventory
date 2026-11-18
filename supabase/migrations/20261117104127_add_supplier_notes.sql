@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE public.suppliers
+  ADD COLUMN IF NOT EXISTS notes TEXT;
+
+COMMIT;

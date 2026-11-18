@@ -1,75 +1,49 @@
 import { Link } from 'react-router-dom'
+import PageHeader from '../components/PageHeader.jsx'
 
 const highlights = [
-  { number: '01', title: 'Tampilan yang jelas', detail: 'Dibangun untuk alur kerja klinik.' },
-  { number: '02', title: 'Data demo lokal', detail: 'Integrasi backend belum diaktifkan.' },
-  { number: '03', title: 'Siap dikembangkan', detail: 'Fondasi React dan navigasi sudah tersedia.' },
+  { number: '01', title: 'Inventory at a glance', detail: 'Keep essential clinic supplies organized.' },
+  { number: '02', title: 'Clear stock activity', detail: 'Make day-to-day inventory easier to follow.' },
+  { number: '03', title: 'Designed for your team', detail: 'A simple workspace for clinic staff.' },
 ]
 
 export default function HomePage() {
   return (
-    <div className="home-page">
-      <section className="hero-card">
-        <div className="hero-copy">
-          <span className="status-pill">
-            <span className="status-dot" />
-            TAHAP 1 · FONDASI PROJECT
-          </span>
-          <h1>Persediaan klinik, lebih mudah dikelola.</h1>
+    <>
+      <PageHeader
+        title="Welcome to ClinicStock 👋"
+        description="A clear, simple workspace for managing your clinic's operational inventory."
+      />
+      <section className="card home-card">
+        <div className="home-card-mark" aria-hidden="true">+</div>
+        <div className="home-card-copy">
+          <span className="eyebrow">INVENTORY MANAGEMENT</span>
+          <h2>Everything your clinic needs, in stock.</h2>
           <p>
-            ClinicStock membantu tim klinik menyiapkan kebutuhan operasional
-            dengan tampilan yang sederhana, rapi, dan mudah dipahami.
+            ClinicStock brings supplies, equipment, and everyday essentials
+            together in one approachable workspace.
           </p>
-          <div className="hero-actions">
-            <Link className="button button-primary" to="/dashboard">
-              Lihat kerangka dashboard
-              <span aria-hidden="true">→</span>
-            </Link>
-            <span className="local-note">Belum terhubung ke Supabase</span>
-          </div>
+          <Link className="btn btn-primary" to="/dashboard">
+            Open dashboard <span aria-hidden="true">→</span>
+          </Link>
         </div>
-
-        <div className="hero-illustration" aria-hidden="true">
-          <div className="illustration-orbit orbit-outer" />
-          <div className="illustration-orbit orbit-inner" />
-          <div className="supply-card supply-card-top">
-            <span className="supply-icon supply-icon-blue">▦</span>
-            <span>
-              <strong>Persediaan</strong>
-              <small>Lebih terorganisir</small>
-            </span>
-            <span className="supply-check">✓</span>
-          </div>
-          <div className="medical-mark">
-            <span />
-            <span />
-          </div>
-          <div className="supply-card supply-card-bottom">
-            <span className="supply-icon supply-icon-green">↗</span>
-            <span>
-              <strong>Alur kerja</strong>
-              <small>Dirancang untuk klinik</small>
-            </span>
-          </div>
-          <span className="decor-dot dot-one" />
-          <span className="decor-dot dot-two" />
+        <div className="home-card-note">
+          <strong>Stage 2</strong>
+          <span>Visual design migration</span>
         </div>
       </section>
-
-      <section className="highlights" aria-label="Ringkasan fondasi aplikasi">
+      <section className="home-highlights" aria-label="ClinicStock overview">
         {highlights.map((item) => (
-          <article className="highlight-card" key={item.number}>
+          <article className="card highlight-card" key={item.number}>
             <span className="highlight-number">{item.number}</span>
             <h2>{item.title}</h2>
             <p>{item.detail}</p>
           </article>
         ))}
       </section>
-
-      <p className="privacy-note">
-        ClinicStock hanya untuk perlengkapan dan inventaris operasional—bukan
-        untuk data pasien.
+      <p className="home-footnote">
+        Built for operational supplies and equipment—not patient or medical records.
       </p>
-    </div>
+    </>
   )
 }
